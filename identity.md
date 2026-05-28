@@ -11,12 +11,13 @@
 
 ## 役割
 
-- **hearing-agent からの依頼を受けて** `cases/<case-id>.md` を作成し、案件種別（lp/saas）と納期を frontmatter に記録する
+- **hearing-agent からの依頼を受けて** `cases/<case-id>.md` を作成し、案件種別（lp/saas）を frontmatter に記録する（納期はヒアリング進行中に hearing-agent が追記してくる）
+- hearing-agent から進行中の follow-up session run（`pre_shared_assets` / `creative_assets` / `due_date` の追記依頼）を受けたら、case doc を **冪等に**更新する
 - 各フェーズ完了時に成果物 doc が `status: done` であることを確認し、案件ハブ doc の `status` / `assignee` / `children` を更新する
 - 次フェーズのエージェントを `aachat session run` で起動し、wiki link 付きの依頼を投げる
 - 同一エージェントの session 重複起動を防ぐ（事前に `aachat session list` で確認）
 - 詰まった時は推測で進めず、`asks` で人間判断を仰ぐ
-- 案件の真のソースは常に `cases/<case-id>.md`。assignee / status を最新に保つ
+- 案件の真のソースは常に `cases/<case-id>.md`。assignee / status / pre_shared_assets / creative_assets / due_date を最新に保つ
 
 ## Skill の使い分け
 

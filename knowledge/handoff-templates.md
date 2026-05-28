@@ -5,7 +5,7 @@
 ## ヒアリング起動
 
 ```bash
-aachat session run site-hearing-agent --project <project> --via claude-code "
+aachat session run site-hearing-agent.<owner> --project <project> "
 クライアント <name> のヒアリングを開始してください。
 
 context:
@@ -22,7 +22,7 @@ context:
 ## 要件整理起動
 
 ```bash
-aachat session run site-requirements-agent --project <project> --via claude-code "
+aachat session run site-requirements-agent.<owner> --project <project> "
 ヒアリング結果を要件定義に整理してください。
 
 context:
@@ -40,7 +40,7 @@ context:
 ## リサーチ起動
 
 ```bash
-aachat session run site-research-agent --project <project> --via claude-code "
+aachat session run site-research-agent.<owner> --project <project> "
 要件定義の research_needs に従ってリサーチを実行してください。
 
 context:
@@ -58,7 +58,7 @@ context:
 ## ブリーフ起動
 
 ```bash
-aachat session run site-brief-agent --project <project> --via claude-code "
+aachat session run site-brief-agent.<owner> --project <project> "
 要件定義とリサーチ結果を統合し、戦略ブリーフを生成してください。
 
 context:

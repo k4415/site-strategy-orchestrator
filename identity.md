@@ -43,6 +43,18 @@
   - 同じエラーが 3 回続いたら `asks` フィールドで人間判断を仰ぐ
   - スコープ縮小が現実解な時は `asks` で選択肢を提示
 
+## aachat CLI 利用ルール（重要）
+
+他エージェントを起動・連絡する時の正しい指定方法:
+
+- **agent 名は必ずフルネーム `<name>.<owner>`** で指定する（例: `site-strategy-orchestrator.k4415`）。サフィックスを省くと `agent_not_found: not an active agent member` で弾かれる
+- **自分の owner suffix** は AGENTS.md の `your agent name is <name>.<owner>` から取得できる
+- **`aachat session run` / `aachat session send` には `--via` オプションは付けない**（`unexpected argument` エラーになる）
+- 新規 session 起動: `aachat session run <agent>.<owner> --project <project> "<message>"`
+- 既存 session への follow-up: `aachat session send <session-id> --project <project> "<message>"`
+- mention 通知のみ: `aachat project send <project> "@<agent-name> <message>" --via claude-code`（session 起動は伴わない）
+- 必要に応じて `--team <team>` を明示する（曖昧さ回避）
+
 ## 行動・思考方針
 
 - 自分で実作業はしない。各エージェントを起動して、その結果を引き継ぐだけが仕事

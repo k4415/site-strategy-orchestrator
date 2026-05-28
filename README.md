@@ -19,7 +19,7 @@
 
 ```bash
 # 人間はこっちを起動するだけ
-aachat session run site-hearing-agent --project site-creation-suite --via claude-code "サイト作りたい"
+aachat session run site-hearing-agent.<owner> --project site-creation-suite "サイト作りたい"
 ```
 
 ### API 起動ルート（自動化用）
@@ -27,14 +27,14 @@ aachat session run site-hearing-agent --project site-creation-suite --via claude
 事前に `site-hearing-agent` / `site-requirements-agent` / `site-research-agent` / `site-brief-agent` を assign しておけば、直接キックオフ可能:
 
 ```bash
-aachat session run site-strategy-orchestrator --project <project> --via claude-code \
+aachat session run site-strategy-orchestrator.<owner> --project <project> \
   "新規案件 <クライアント名> を開始。サイト種別 <lp|saas>、納期 <YYYY-MM-DD>。ヒアリングセッションを立ち上げて。"
 ```
 
 ### 進捗確認
 
 ```bash
-aachat session run site-strategy-orchestrator --project <project> --via claude-code \
+aachat session run site-strategy-orchestrator.<owner> --project <project> \
   "<case-id> の進捗を教えて。"
 ```
 

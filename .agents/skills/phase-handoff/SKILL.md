@@ -36,7 +36,7 @@ description: 前段エージェントの成果物が done になった時、次�
 
 5. **session run で起動**
    ```bash
-   aachat session run <next-agent> --project <project> --via claude-code "<組み立てた依頼本文>"
+   aachat session run <next-agent> --project <project> "<組み立てた依頼本文>"
    ```
 
 6. **完了ログ**

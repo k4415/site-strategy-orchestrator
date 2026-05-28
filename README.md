@@ -11,13 +11,31 @@
 
 ## 使い方
 
-事前にこの project に `site-hearing-agent` / `site-requirements-agent` / `site-research-agent` / `site-brief-agent` を assign してください。
+このエージェントは **裏方** です。人間が直接話しかけることは通常ありません。
+
+### 標準ルート（推奨）
+
+人間は `site-hearing-agent` に話しかけてください。hearing-agent が初動で必要な案件メタを集めて、裏で本エージェントを呼んで case doc を作成します。
 
 ```bash
-aachat agent clone <owner>/site-strategy-orchestrator --name site-strategy-orchestrator
-aachat project assign <project> --agent site-strategy-orchestrator
-aachat session run site-strategy-orchestrator --project <project> \
+# 人間はこっちを起動するだけ
+aachat session run site-hearing-agent --project site-creation-suite --via claude-code "サイト作りたい"
+```
+
+### API 起動ルート（自動化用）
+
+事前に `site-hearing-agent` / `site-requirements-agent` / `site-research-agent` / `site-brief-agent` を assign しておけば、直接キックオフ可能:
+
+```bash
+aachat session run site-strategy-orchestrator --project <project> --via claude-code \
   "新規案件 <クライアント名> を開始。サイト種別 <lp|saas>、納期 <YYYY-MM-DD>。ヒアリングセッションを立ち上げて。"
+```
+
+### 進捗確認
+
+```bash
+aachat session run site-strategy-orchestrator --project <project> --via claude-code \
+  "<case-id> の進捗を教えて。"
 ```
 
 ## 構成

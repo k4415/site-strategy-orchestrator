@@ -1,0 +1,9 @@
+name: site-strategy-orchestrator
+description: "Orchestrator for the site creation upstream workflow (hearing → requirements → research → brief)"
+config:
+  packages:
+    pip: []
+    npm: []
+  networking:
+    type: unrestricted
+  env: []
